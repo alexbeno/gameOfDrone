@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="50px" height="50px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45 (43475) - http://www.bohemiancoding.com/sketch -->
+    <title>menu</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="chapitre-1" transform="translate(-135.000000, -40.000000)">
+            <g id="top-bar">
+                <g id="menu" transform="translate(135.000000, 40.000000)">
+                    <circle id="Oval" stroke="#FFD031" stroke-width="2" cx="25" cy="25" r="24"></circle>
+                    <g id="Icon" transform="translate(16.500000, 17.750000)" fill="#FFFFFF">
+                        <path d="M16.6153846,2.8 L1.38461538,2.8 C0.620307692,2.8 0,2.1728 0,1.4 C0,0.6272 0.620307692,0 1.38461538,0 L16.6153846,0 C17.3796923,0 18,0.6272 18,1.4 C18,2.1728 17.3796923,2.8 16.6153846,2.8 L16.6153846,2.8 Z M1.38461538,5.6 L16.6153846,5.6 C17.3796923,5.6 18,6.2272 18,7 C18,7.7728 17.3796923,8.4 16.6153846,8.4 L1.38461538,8.4 C0.620307692,8.4 0,7.7728 0,7 C0,6.2272 0.620307692,5.6 1.38461538,5.6 L1.38461538,5.6 Z M1.38461538,11.2 L9.69230769,11.2 C10.4566154,11.2 11.0769231,11.8272 11.0769231,12.6 C11.0769231,13.3728 10.4566154,14 9.69230769,14 L1.38461538,14 C0.620307692,14 0,13.3728 0,12.6 C0,11.8272 0.620307692,11.2 1.38461538,11.2 L1.38461538,11.2 Z" id="Shape"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,48 @@
+//colors
+$yellow: #FFD031;
+$white: #FFF;
+$black: #141516;
+
+//font size
+$sizebig: 10em;
+$sizeh1: 3em;
+$sizeh2: 3em;
+$sizeh3: 2.5em;
+$sizechap: 5em;
+$sizetitle: 2em;
+$sizecourant: 2em;
+$sizecourantlow: 1.8em;
+
+//font
+$fonttitle: 'Anton', sans-serif;
+$fontcourant: 'Open Sans', sans-serif;
+
+//weight
+$extra: 800;
+$bold: 700;
+$medium: 600;
+$reg: 400;
+
+//line height
+
+$linecourant: 2.5em;
+$linecourantB: 1.9em;
+//transition
+$materialtrans: cubic-bezier(.4, 0, .2 , 1);
+
+
+//query
+@mixin query($media) {
+    @media only screen and (max-width: $media) { @content; }
+}
+
+
+@mixin querymobil($min, $max) {
+  @media only screen and (min-device-width : $min)  and (max-device-width : $max) { @content; }
+}
+@mixin querymobilB($min, $max) {
+  @media only screen and (min-device-width : $min)  and (max-device-width : $max) and (orientation: landscape) { @content; }
+}
+
+// @include query(1400px) { margin: 200px 0 100px 0;};
+// @include querymobil(300px, 1024px) { flex-direction: column; justify-content: center; margin-top: -200px;};

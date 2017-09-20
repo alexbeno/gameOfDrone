@@ -1,0 +1,436 @@
+@import '../global/var';
+
+.chapter3 {
+  .chapterIntro {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    font-size: 0.5em;
+    opacity: 0;
+    transition: all ease 0.5s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @include querymobil(300px, 1024px) { height: 80vh;};
+    &--bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: auto;
+      z-index: -1;
+      opacity: 0.3;
+      @include querymobil(300px, 1024px) { height: 100%; width: auto; margin-left: -70%;};
+      @include querymobilB(300px, 1024px) { width: 100%; height: auto; margin-left: 0;};
+    }
+    &--number {
+      stroke-dasharray: 1500;
+      stroke-dashoffset: 1500;
+      animation: draw 3s 0.5s ease forwards;
+      @keyframes draw {
+        0% {
+          stroke-dashoffset: 1500;
+        }
+        100% {
+          stroke-dashoffset: 0;
+        }
+      }
+    }
+    &--title {
+      font-size: $sizechap;
+      margin-top: 30px;
+      text-align: center;
+      width: 20%;
+      line-height: 1.5em;
+      font-weight: $bold;
+      @include querymobil(300px, 1024px) { font-size: 5em; width: 90%;};
+      @include querymobilB(300px, 1024px) { font-size: 3em; width: 90%;};
+    }
+    &--border {
+      width: 15%;
+      height: 6px;
+      background-color: $yellow;
+      margin: 3% 0;
+      transform: scaleX(0);
+      animation: scale 0.5s 0.5s ease forwards;
+      @keyframes scale {
+        0% {
+          transform: scaleX(0);
+        }
+        100% {
+          transform: scaleX(1);
+        }
+      }
+    }
+    &--txt {
+      width: 30%;
+      text-align: center;
+      font-size: $sizecourant;
+      line-height: $linecourant;
+      opacity: 0;
+      animation: opacity 1s 0.7s ease forwards;
+      @include querymobil(300px, 1024px) { font-size: 1em; width: 90%;};
+      @keyframes opacity{
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+    }
+    &:hover {
+      .chapterIntro--bg {
+        transition: all linear 20s;
+        transform: scale(1.5);
+      }
+    }
+  }
+
+  .chapter3Calv{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    font-size: 0.5em;
+    opacity: 0;
+    transition: all ease 0.5s;
+    @include querymobil(300px, 1024px) { display: flex; flex-direction: column; justify-content: center};
+    &--video {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      object-fit: cover;
+      @include querymobil(300px, 1024px) { width: 100%; height: auto;top: 30%;};
+      @include querymobilB(300px, 1024px) { width: 100%; height: auto; top: 0%;};
+      filter: blur(1px) brightness(0.5);
+    }
+    &--txt {
+      position: absolute;
+      right: 5%;
+      bottom: 15%;
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 2%;
+      width: 30%;
+      height: auto;
+      font-size: $sizecourantlow;
+      line-height: $linecourantB;
+      @include querymobil(300px, 1024px) { width: 100%; left: 0; font-size: 1.2em; line-height: 1.5em; background: transparent;};
+    }
+  }
+
+  .chapter3Number {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    &--title {
+      font-size: $sizecourantlow;
+      line-height: 1.5em;
+      font-weight: $bold;
+      margin-left: -50%;
+      margin-bottom: 5%;
+      @include querymobil(300px, 1024px) {font-size: 0.8em; margin-left: 0%;};
+      span {
+        color: $yellow;
+        font-size: $sizecourant;
+      }
+    }
+    &--data {
+      display: none;
+      width: 80%;
+      @include querymobil(300px, 1024px) {display: block;};
+      @include querymobilB(300px, 1024px) {display: none;};
+    }
+    &--svg {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 70%;
+      @include querymobil(300px, 1024px) {display: none;};
+      @include querymobilB(300px, 1024px) {display: block;width: 40%;};
+      &--content {
+        width: 100%;
+        height: auto;
+        &--A {
+          opacity: 0;
+          animation: opacity 1s 0.5s ease forwards;
+        }
+        &--B {
+          opacity: 0;
+          animation: opacity 1s 1s ease forwards;
+        }
+        &--C {
+          opacity: 0;
+          animation: opacity 1s 1.5s ease forwards;
+        }
+        &--D {
+          opacity: 0;
+          animation: opacity 1s 1s ease forwards;
+        }
+        &--E {
+          opacity: 0;
+          animation: opacity 1s 1s ease forwards;
+        }
+        @keyframes opacity{
+          0% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+  .chapter3Opponent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    @include querymobilB(300px, 1024px) {justify-content: center;};
+    &--title {
+      font-size: $sizecourantlow;
+      line-height: 1.5em;
+      font-weight: $bold;
+      margin-left: -50%;
+      margin-top: 5%;
+      @include querymobil(300px, 1024px) {font-size: 1.2em; margin-left: 0;};
+      @include querymobilB(300px, 1024px) {display: none};
+      span {
+        color: $yellow;
+        font-size: $sizecourant;
+      }
+    }
+    &--svg {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 70%;
+      @include querymobil(300px, 1024px) {display: none};
+      @include querymobilB(300px, 1024px) {display: none};
+      &--content {
+        width: 100%;
+        height: auto;
+        &--line {
+          stroke-dasharray: 1500;
+          stroke-dashoffset: 1500;
+          animation: draw 2s 0.5s ease forwards;
+          @keyframes draw {
+            0% {
+              stroke-dashoffset: 1500;
+            }
+            100% {
+              stroke-dashoffset: 0;
+            }
+          }
+        }
+        &--plane {
+          opacity: 0;
+          animation: opacity 2s 0.8s ease forwards;
+          @keyframes opacity {
+            0% {
+              opacity: 0;
+            }
+            100% {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+    &--container {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      @include querymobil(300px, 1024px) {flex-direction: column; font-size: 0.8em; margin-top: -35%;};
+      @include querymobilB(300px, 1024px) {font-size: 0.5em; margin-top: 0;};
+      &--one {
+        width: 30%;
+        opacity: 0.8;
+        line-height: $linecourantB;
+        text-align: right;
+        margin-right: 5%;
+        @include querymobil(300px, 1024px) {width: 90%; margin-left: 10%; text-align: left;};
+      }
+      &--border {
+        width: 8px;
+        height: 50vh;
+        background-color: $yellow;
+        @include querymobil(300px, 1024px) {display: none};
+      }
+      &--two {
+        width: 30%;
+        height: 40vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        margin-left: 5%;
+        @include querymobil(300px, 1024px) {width: 90%;};
+        &--txt {
+          width: 100%;
+          opacity: 0.8;
+          line-height: $linecourantB;
+        }
+      }
+    }
+  }
+
+  .chapter3Mission{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    font-size: 0.5em;
+    opacity: 0;
+    transition: all ease 0.5s;
+    &--video {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      object-fit: cover;
+      @include querymobil(300px, 1024px) { width: 100%; height: auto;top: 30%;};
+      @include querymobilB(300px, 1024px) { width: 100%; height: auto; top: 0%;};
+      filter: blur(1px) brightness(0.5);
+    }
+    &--txt {
+      position: absolute;
+      right: 5%;
+      bottom: 15%;
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 2%;
+      width: 30%;
+      height: auto;
+      font-size: $sizecourantlow;
+      line-height: $linecourantB;
+      @include querymobil(300px, 1024px) { width: 100%; left: 0; font-size: 1.2em; line-height: 1.5em; background: transparent;};
+    }
+  }
+
+  .chapter3Justice{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    font-size: 0.5em;
+    opacity: 0;
+    transition: all ease 0.5s;
+    &--video {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      object-fit: cover;
+      @include querymobil(300px, 1024px) { width: 100%; height: auto;top: 30%;};
+      @include querymobilB(300px, 1024px) { width: 100%; height: auto; top: 0%;};
+      filter: blur(1px) brightness(0.5);
+    }
+  }
+  .chapterYou {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    font-size: 0.5em;
+    opacity: 0;
+    transition: all ease 0.5s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &--txt {
+      width: 35%;
+      text-align: center;
+      font-size: $sizecourant;
+      line-height: $linecourant;
+      opacity: 0.8;
+      @include querymobil(300px, 1024px) { width: 90%; font-size: 1.8em;};
+    }
+    &--button {
+      font-size: $sizecourant;
+      font-weight: $bold;
+      margin-top: 40px;
+      display: inline-block;
+      padding: 15px 20px;
+      border: 2px solid $yellow;
+      border-radius: 5px;
+      transition: all $materialtrans 0.5s;
+      &:hover {
+        background-color: $yellow;
+        transition: all $materialtrans 0.5s;
+      }
+    }
+  }
+  .slide {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    &--content {
+      width: 20%;
+      height:4px;
+      background-color: #757676;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      &--current {
+        width: 50%;
+        height: 4px;
+        margin-left: 50%;
+        background-color: $yellow;
+        transition: all 0.3s $materialtrans;
+      }
+    }
+  }
+  .leave {
+    opacity: 0;
+    transition: all ease 1s;
+  }
+
+  .enter {
+    opacity: 1;
+    transition: all ease 1s;
+  }
+}

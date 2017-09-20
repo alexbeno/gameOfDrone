@@ -1,0 +1,571 @@
+@import '../global/var';
+.chapter1 {
+  .chapterIntro {
+      width: 100%;
+      height: 100vh;
+      position: fixed;
+      z-index: 999;
+      top: 0;
+      left: 0;
+      font-size: 0.5em;
+      opacity: 0;
+      transition: all ease 0.5s;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      @include querymobil(300px, 1024px) { height: 80vh;};
+      &--bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        z-index: -1;
+        opacity: 0.3;
+        transition: all linear 20s;
+        @include querymobil(300px, 1024px) { height: 100%; width: auto; margin-left: -70%;};
+        @include querymobilB(300px, 1024px) { width: 100%; height: auto; margin-left: 0;};
+      }
+      &--number {
+        stroke-dasharray: 1500;
+        stroke-dashoffset: 1500;
+        animation: draw 3s 0.5s ease forwards;
+        @keyframes draw {
+          0% {
+            stroke-dashoffset: 1500;
+          }
+          100% {
+            stroke-dashoffset: 0;
+          }
+        }
+      }
+      &--title {
+        font-size: $sizechap;
+        margin-top: 30px;
+        text-align: center;
+        width: 20%;
+        line-height: 1.5em;
+        font-weight: $bold;
+        @include querymobil(300px, 1024px) { font-size: 5em; width: 90%;};
+      }
+      &--border {
+        width: 15%;
+        height: 6px;
+        background-color: $yellow;
+        margin: 3% 0;
+        transform: scaleX(0);
+        animation: scale 0.5s 0.5s ease forwards;
+        @keyframes scale {
+          0% {
+            transform: scaleX(0);
+          }
+          100% {
+            transform: scaleX(1);
+          }
+        }
+      }
+      &--txt {
+        width: 30%;
+        text-align: center;
+        font-size: $sizecourant;
+        line-height: $linecourant;
+        opacity: 0;
+        animation: opacity 1s 0.7s ease forwards;
+        @include querymobil(300px, 1024px) { font-size: 1em; width: 90%;};
+        @include querymobilB(300px, 1024px) { font-size: 1.2em; width: 90%;};
+        @keyframes opacity{
+          0% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 1;
+          }
+        }
+      }
+      &:hover {
+        .chapterIntro--bg {
+          transition: all linear 20s;
+          transform: scale(1.5);
+        }
+      }
+    }
+
+
+  .homeDrone {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    font-size: 0.5em;
+    opacity: 0;
+    transition: all ease 0.5s;
+    &--svg {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100vh;
+      @include querymobil(300px, 1024px) { bottom: 20%; width: 90%; height: 25vh;};
+      @include querymobilB(300px, 1024px) { bottom: 30%; left: 30%; width: 90%; height: 40vh;};
+      &--content {
+        &--draw {
+          stroke-dasharray: 1500;
+          stroke-dashoffset: 1500;
+          animation: draw 3s ease forwards;
+          @keyframes draw {
+            0% {
+            	stroke-dashoffset: 1500;
+            }
+            100% {
+              stroke-dashoffset: 0;
+            }
+          }
+        }
+        &--drawCircle {
+          stroke-dasharray: 1500;
+          stroke-dashoffset: 1500;
+          animation: draw 3s 1s ease forwards;
+          @keyframes draw {
+            0% {
+            	stroke-dashoffset: 1500;
+            }
+            100% {
+              stroke-dashoffset: 0;
+            }
+          }
+        }
+        &--drawLine {
+          stroke-dasharray: 1500;
+          stroke-dashoffset: 1500;
+          animation: draw 3s 1.5s ease forwards;
+          @keyframes draw {
+            0% {
+            	stroke-dashoffset: 1500;
+            }
+            100% {
+              stroke-dashoffset: 0;
+            }
+          }
+        }
+        &--opacity {
+          opacity: 0;
+          animation: opacity 1.5s 1.7s ease forwards;
+          @keyframes opacity {
+            0% {
+            	opacity: 0;
+            }
+            100% {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+    &--txt {
+      width: 100%;
+      height: 50vh;
+      font-size: $sizecourant;
+      line-height: $linecourant;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      @include querymobil(300px, 1024px) { font-size: 1.2em;};
+      &--content {
+        width: 35%;
+        height: auto;
+        padding-left: 2%;
+        margin-left: 10%;
+        border-left: 6px $yellow solid;
+        @include querymobil(300px, 1024px) { width: 90%; margin-top: 20%;};
+        @include querymobil(300px, 1024px) { width: 40%; margin-top: 25%;};
+        span {
+          font-size: $sizeh2;
+          color: $yellow;
+        }
+      }
+    }
+  }
+
+  .slide {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    &--content {
+      width: 20%;
+      height:4px;
+      background-color: #757676;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      &--current {
+        width: 50%;
+        height: 4px;
+        margin-left: 50%;
+        background-color: $yellow;
+        transition: all 0.3s $materialtrans;
+      }
+    }
+  }
+
+    .homeVideo{
+      width: 100%;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      font-size: 0.5em;
+      opacity: 0;
+      transition: all ease 0.5s;
+      @include querymobil(300px, 1024px) { display: flex; flex-direction: column; justify-content: center;};
+      &--video {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        object-fit: cover;
+        @include querymobil(300px, 1024px) { width: 100%; height: auto; top: 30%;};
+        @include querymobilB(300px, 1024px) { width: 100%; height: auto; top: 0%;};
+        filter: blur(1px) brightness(0.5);
+      }
+    }
+
+    .homeData{
+      width: 100%;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      font-size: 0.5em;
+      opacity: 0;
+      transition: all ease 0.5s;
+      &--data {
+        display: none;
+        width: 80%;
+        height: auto;
+        margin-left: 10%;
+        margin-top: 30%;
+        @include querymobil(300px, 1024px) { display: block;};
+        @include querymobilB(300px, 1024px) { display: none;};
+      }
+      &--svg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100vh;
+        @include querymobil(300px, 1024px) { display: none;};
+        @include querymobilB(300px, 1024px) { display: flex; width: 70%; margin-left: 15%;};
+        &--content {
+          width: 80%;
+          height: auto;
+          &--draw {
+            stroke-dasharray: 1500;
+            stroke-dashoffset: 1500;
+            animation: draw 4s 1s ease forwards;
+            @keyframes draw {
+              0% {
+                stroke-dashoffset: 1500;
+              }
+              100% {
+                stroke-dashoffset: 0;
+              }
+            }
+          }
+          &--opacity {
+            opacity: 0;
+            animation: opacity 1.5s 2s ease forwards;
+            @keyframes opacity {
+              0% {
+                opacity: 0;
+              }
+              100% {
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+    }
+    .chapterIntro {
+      width: 100%;
+      height: 100vh;
+      position: fixed;
+      z-index: 999;
+      top: 0;
+      left: 0;
+      font-size: 0.5em;
+      opacity: 0;
+      transition: all ease 0.5s;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      @include querymobil(300px, 1024px) { height: 80vh;};
+      &--number {
+        margin-left: -3px;
+        width: 7vw;
+        height: 7vw;
+        border-radius: 50%;
+        border: 4px solid $yellow;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        &--content {
+          font-size: 4vw;
+          font-family: $fonttitle;
+        }
+      }
+      &--title {
+        font-size: $sizechap;
+        margin-top: 30px;
+        text-align: center;
+        width: 20%;
+        line-height: 1.5em;
+        font-weight: $bold;
+        @include querymobil(300px, 1024px) { font-size: 4em; width: 90%;};
+        @include querymobilB(300px, 1024px) { font-size: 3em; width: 90%;};
+      }
+      &--border {
+        width: 15%;
+        height: 6px;
+        background-color: $yellow;
+        margin: 3% 0;
+        @include querymobilB(300px, 1024px) { height: 4px;};
+      }
+      &--txt {
+        width: 30%;
+        text-align: center;
+        font-size: $sizecourant;
+        line-height: $linecourant;
+        @include querymobil(300px, 1024px) { width: 90%;};
+        @include querymobilB(300px, 1024px) { font-size: 1.5em; width: 90%;};
+      }
+    }
+
+
+    .slide {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      z-index: -1;
+      &--content {
+        width: 20%;
+        height:4px;
+        background-color: #757676;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        &--current {
+          width: 50%;
+          height: 4px;
+          margin-left: 50%;
+          background-color: $yellow;
+          transition: all 0.3s $materialtrans;
+        }
+      }
+    }
+    .homeComp{
+      width: 100%;
+      height: 100vh;
+      position: fixed;
+      z-index: 999;
+      top: 0;
+      left: 0;
+      font-size: 0.5em;
+      opacity: 0;
+      transition: all ease 0.5s;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      @include querymobil(300px, 1024px) { flex-direction: column;};
+      &--content {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 50%;
+        height: 80vh;
+        @include querymobil(300px, 1024px) { width: 90%;};
+        @include querymobilB(300px, 1024px) {height: 100vh;};
+        &--first {
+          margin-left: 5%;
+          &--txt {
+            width: 80%;
+            height: auto;
+            margin-top: 2%;
+            padding: 2%;
+            border-left: 8px $yellow solid;
+            font-size: $sizecourant;
+            line-height: $linecourantB;
+            @include querymobil(300px, 1024px) {border-left: 4px $yellow solid; font-size: 1em;};
+          }
+        }
+        &--second {
+          margin-top: 15%;
+          position: relative;
+          @include querymobilB(300px, 1024px) {margin-top: 0;};
+          &--border {
+            position: absolute;
+            top: 10px;
+            right: 0;
+            width: 20%;
+            height: 100px;
+            border-right: 8px $yellow solid;
+            border-top: 8px $yellow solid;
+            @include querymobil(300px, 1024px) {border-right: 4px $yellow solid; border-top: 4px $yellow solid; top: 0px;};
+          }
+          &--txt {
+            width: 80%;
+            height: auto;
+            margin-top: 2%;
+            margin-left: 20%;
+            padding: 2%;
+            border-right: 8px $yellow solid;
+            text-align: right;
+            font-size: $sizecourant;
+            line-height: $linecourantB;
+            @include querymobil(300px, 1024px) {border-right: 4px $yellow solid; font-size: 1em;};
+          }
+          &--img {
+            position: absolute;
+            right: 20%;
+            bottom: -50%;
+            width: 40%;
+            height: auto;
+            z-index: -1;
+          }
+        }
+        &--title {
+          font-size: $sizeh3;
+          font-weight: $bold;
+          line-height: $linecourantB;
+          width: 110%;
+          margin-bottom: 10%;
+          margin-left: 10%;
+          @include querymobil(300px, 1024px) {font-size: 1.5em; margin-left: 0; width: 100%;};
+          @include querymobilB(300px, 1024px) {margin-bottom: 0;};
+          span {
+            color: $yellow;
+          }
+        }
+      }
+      &--svg {
+        width: 40%;
+        height: auto;
+        @include querymobil(300px, 1024px) { display: none;};
+        &--content {
+          width: 80%;
+          &--draw {
+            stroke-dasharray: 1500;
+            stroke-dashoffset: 1500;
+            animation: draw 5s ease forwards;
+            @keyframes draw {
+              0% {
+                stroke-dashoffset: 1500;
+              }
+              100% {
+                stroke-dashoffset: 0;
+              }
+            }
+          }
+          &--drawPlane {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 2000;
+            animation: draw 5s ease forwards;
+            @keyframes draw {
+              0% {
+                stroke-dashoffset: 1500;
+              }
+              100% {
+                stroke-dashoffset: 0;
+              }
+            }
+          }
+          &--opacity {
+            opacity: 0;
+            animation: opacity 1.5s 1.5s ease forwards;
+            @keyframes opacity {
+              0% {
+                opacity: 0;
+              }
+              100% {
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+    }
+    .homeCons{
+      width: 100%;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      font-size: 0.5em;
+      opacity: 0;
+      transition: all ease 0.5s;
+      @include querymobil(300px, 1024px) { display: flex; flex-direction: column; justify-content: center};
+      &--video {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        object-fit: cover;
+        filter: blur(1px) brightness(0.5);
+        @include querymobil(300px, 1024px) { width: 100%; height: auto; top: 30%;};
+        @include querymobilB(300px, 1024px) { width: 100%; height: auto; top: 0%;};
+      }
+      &--txt {
+        position: absolute;
+        left: 5%;
+        bottom: 15%;
+        background-color: rgba(0, 0, 0, 0.3);
+        padding: 2%;
+        width: 30%;
+        height: auto;
+        font-size: $sizecourantlow;
+        line-height: $linecourantB;
+        border-left: 6px solid $yellow;
+        @include querymobil(300px, 1024px) { width: 100%; left: 0; font-size: 1.2em; line-height: 1.5em; background: transparent;};
+      }
+    }
+  .leave {
+    opacity: 0;
+    transition: all ease 1s;
+  }
+
+  .enter{
+    opacity: 1;
+    transition: all ease 1s;
+  }
+}
